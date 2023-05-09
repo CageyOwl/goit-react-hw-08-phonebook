@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
@@ -6,12 +6,12 @@ import { RestrictedRoute } from './RestrictedRoute/RestrictedRoute';
 import { refreshUser } from 'redux/auth/authOperations';
 
 import SharedLayout from './SharedLayout/SharedLayout';
-import Home from 'pages/Home';
-import Phonebook from 'pages/Phonebook';
-import PhonebookEdit from 'pages/PhonebookEdit';
-import Registration from 'pages/Registration';
-import Login from 'pages/Login';
-import BadURL from 'pages/BadURL';
+const Home = lazy(() => import('../pages/Home'));
+const Phonebook = lazy(() => import('../pages/Phonebook'));
+const PhonebookEdit = lazy(() => import('../pages/PhonebookEdit'));
+const Registration = lazy(() => import('../pages/Registration'));
+const Login = lazy(() => import('../pages/Login'));
+const BadURL = lazy(() => import('../pages/BadURL'));
 
 
 export function App() {
