@@ -1,0 +1,38 @@
+.user-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 24px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.user-menu__button {
+    min-width: 80px;
+    padding: 8px;
+
+    font-size: 16px;
+    text-align: center;
+    font-weight: 700;
+
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #000;
+}
+
+.user-menu__button:hover {
+    background-color: rgb(0, 119, 255);
+}
+
+.greeting {
+    display: block;
+    margin: 0;
+}
+
+@media screen and (min-width: 767px) {
+    .user-menu {
+        margin-top: 0;
+        margin-left: auto;
+    }
+}

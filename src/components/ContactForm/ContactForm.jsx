@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/apiStorageActions';
+import { addContact } from 'redux/contacts/contactsOperations';
 import css from './contactForm.module.css';
-
 
 export default function ContactForm() {
   const [state, setState] = useState({ name: '', number: '' });
@@ -23,33 +22,37 @@ export default function ContactForm() {
 
   return (
     <form className={css['adding-form']} onSubmit={handleSubmit}>
-      <label className={css['adding-form__label']} htmlFor="name">
-        Name
-      </label>
-      <input
-        className={css['adding-form__input']}
-        type="text"
-        name="name"
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-        required
-        value={state.name}
-        onChange={handleChange}
-      />
+      <div className={css['adding-form__field-container']}>
+        <label className={css['adding-form__label']} htmlFor="name">
+          Name
+        </label>
+        <input
+          className={css['adding-form__input']}
+          type="text"
+          name="name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+          value={state.name}
+          onChange={handleChange}
+        />
+      </div>
 
-      <label className={css['adding-form__label']} htmlFor="number">
-        Phone
-      </label>
-      <input
-        className={css['adding-form__input']}
-        type="tel"
-        name="number"
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-        required
-        value={state.number}
-        onChange={handleChange}
-      />
+      <div className={css['adding-form__field-container']}>
+        <label className={css['adding-form__label']} htmlFor="number">
+          Phone
+        </label>
+        <input
+          className={css['adding-form__input']}
+          type="tel"
+          name="number"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+          value={state.number}
+          onChange={handleChange}
+        />
+      </div>
 
       <button className={css['adding-form__button']} type="submit">
         Add contact

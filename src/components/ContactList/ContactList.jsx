@@ -1,37 +1,46 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchContacts, deleteContact } from 'redux/apiStorageActions';
+import { getContacts, removeContact } from 'redux/contacts/contactsOperations';
+
 import {
   selectContacts,
-  selectLoadingStatus,
-  selectFilter,
-  selectError,
-} from 'redux/selectors';
+  selectContactsAreLoading,
+  selectContactsError,
+} from 'redux/contacts/contactsSelectors';
+import { selectFilter } from 'redux/filter/filterSelectors';
+
 import ContactListItem from './ContactListItem';
 import Loader from 'components/Loader/Loader';
 
 
 export default function ContactList() {
   const dispatch = useDispatch();
+
+  let areContactsLoading = useSelector(selectContactsAreLoading);
+  let error = useSelector(selectContactsError);
   let contacts = useSelector(selectContacts);
-  let loadingStatus = useSelector(selectLoadingStatus);
   let filter = useSelector(selectFilter);
-  let error = useSelector(selectError);
 
   let list = filter
     ? contacts.filter(contact => contact.name.match(new RegExp(filter, 'gi')))
     : contacts;
 
+  const deleteContact = event => {
+    if (event.target.name === 'delete') {
+      dispatch(removeContact(event.target.id));
+    }
+  };
+
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(getContacts());
   }, [dispatch]);
 
   return (
     <>
-      {loadingStatus && !error ? (
+      {areContactsLoading && !error ? (
         <Loader />
       ) : (
-        <ul onClick={event => dispatch(deleteContact(event.target.id))}>
+        <ul onClick={deleteContact}>
           {list.map(item => (
             <ContactListItem
               key={item.id}
