@@ -1,10 +1,11 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { logIn } from "redux/auth/authOperations";
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { logIn } from 'redux/auth/authOperations';
+import css from './auth.module.css';
 
 
 export default function LoginForm() {
-    const [state, setState] = useState({ email: '', password: '' });
+  const [state, setState] = useState({ email: '', password: '' });
   const dispatch = useDispatch();
 
   const handleChange = event => {
@@ -25,10 +26,11 @@ export default function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <label htmlFor="email">Email</label>
       <input
-        type=""
+        className={css['form__input']}
+        type="email"
         name="email"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
@@ -38,9 +40,9 @@ export default function LoginForm() {
 
       <label htmlFor="password">Password</label>
       <input
+        className={css['form__input']}
         type="text"
         name="password"
-        // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
         value={state.password}

@@ -11,7 +11,7 @@ export default function Filter() {
   };
 
   return (
-    <>
+    <div className={css['filter-container']}>
       <label className={css['filter__label']} htmlFor="filter">
         Find contacts by name
       </label>
@@ -21,6 +21,6 @@ export default function Filter() {
         name="filter"
         onChange={handleChange}
       />
-    </>
+    </div>
   );
 }

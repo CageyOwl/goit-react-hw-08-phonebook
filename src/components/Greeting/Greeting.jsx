@@ -1,7 +1,16 @@
-export default function Greeting() {
+import PropTypes from 'prop-types';
+import css from './greeting.module.css';
+
+
+export default function Greeting({ text }) {
     return (
-        <p>
-            This app was made by Fedorchuk Oleksandr P. as the GoIT homework project for the last React module. Thank You for visiting this app.
+        <p className={css.p}>
+            {text}
         </p>
     );
 }
+
+
+Greeting.propTypes = {
+    text: PropTypes.string,
+};

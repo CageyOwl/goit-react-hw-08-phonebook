@@ -1,9 +1,33 @@
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.filter-container::after {
+    content: '';
+    height: 1px;
+    background-color: #aaa;
+}
+
 .filter__label {
-    font-size: 18px;
+    font-size: 24px;
     display: block;
+}
+
+.filter__input {
+    font-size: 28px;
+    background-color: #eee;
+    margin-bottom: 8px;
 }
 
 .filter__input:focus {
     box-shadow: 0 0 8px rgb(0, 119, 255);
     outline: none;
+}
+
+@media screen and (min-width: 768px) {
+    .filter-container {
+        justify-items: center;
+    }
 }

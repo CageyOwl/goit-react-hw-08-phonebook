@@ -1,0 +1,2 @@
+export const greetingText = 'This app was made by Fedorchuk Oleksandr P. as the GoIT homework project for the last React module. Thank you for visiting this page.';
+export const falseRouteExplanationText = 'Bad URL, page not found.';

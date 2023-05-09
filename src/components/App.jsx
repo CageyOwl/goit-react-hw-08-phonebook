@@ -11,7 +11,7 @@ import Phonebook from 'pages/Phonebook';
 import PhonebookEdit from 'pages/PhonebookEdit';
 import Registration from 'pages/Registration';
 import Login from 'pages/Login';
-import FalseRoute from 'pages/FalseRoute';
+import BadURL from 'pages/BadURL';
 
 
 export function App() {
@@ -57,8 +57,8 @@ export function App() {
             />
           }
         />
+        <Route path="*" element={<BadURL />} />
       </Route>
-      <Route path="*" element={<FalseRoute />} />
     </Routes>
   );
 }

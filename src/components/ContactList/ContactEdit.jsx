@@ -31,10 +31,10 @@ export default function ContactEdit() {
   return (
     <div className={css.overlay} onClick={null}>
       <div className={css.modal}>
-        <form>
+        <form className={css.form}>
           <label htmlFor="name">Name</label>
           <input
-            className={css['adding-form__input']}
+            className={css['form__input']}
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -46,7 +46,7 @@ export default function ContactEdit() {
 
           <label htmlFor="number">Phone</label>
           <input
-            className={css['adding-form__input']}
+            className={css['form__input']}
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -56,11 +56,11 @@ export default function ContactEdit() {
             onChange={onChange}
           />
 
-          <ul>
-            <button type="submit" onClick={onSubmit}>
+          <ul className={css['form__actions']}>
+            <button className={css['form__action-button']} type="submit" onClick={onSubmit}>
               Change
             </button>
-            <Link to="/contacts">Close</Link>
+            <Link className={css['form__action-button']} to="/contacts">Close</Link>
           </ul>
         </form>
       </div>

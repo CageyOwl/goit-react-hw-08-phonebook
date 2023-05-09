@@ -12,6 +12,8 @@ import { selectFilter } from 'redux/filter/filterSelectors';
 import ContactListItem from './ContactListItem';
 import Loader from 'components/Loader/Loader';
 
+import css from './contactsList.module.css';
+
 
 export default function ContactList() {
   const dispatch = useDispatch();
@@ -40,7 +42,7 @@ export default function ContactList() {
       {areContactsLoading && !error ? (
         <Loader />
       ) : (
-        <ul onClick={deleteContact}>
+        <ul className={css['contacts-list']} onClick={deleteContact}>
           {list.map(item => (
             <ContactListItem
               key={item.id}

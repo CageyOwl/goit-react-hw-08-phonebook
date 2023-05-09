@@ -2,4 +2,12 @@
     display: block;
     height: 200px;
     width: 200px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        height: 500px;
+        width: 500px;
+    }
 }

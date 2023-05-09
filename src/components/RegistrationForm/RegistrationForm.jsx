@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
+import css from '../LoginForm/auth.module.css';
+
 
 export default function RegistrationForm() {
   const [state, setState] = useState({ name: '', email: '', password: '' });
@@ -25,9 +27,10 @@ export default function RegistrationForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <label htmlFor="name">Name</label>
       <input
+        className={css['form__input']}
         type="text"
         name="name"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -39,9 +42,10 @@ export default function RegistrationForm() {
 
       <label htmlFor="email">Email</label>
       <input
-        type=""
+        className={css['form__input']}
+        type="email"
         name="email"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+        title="Your email address."
         required
         value={state.email}
         onChange={handleChange}
@@ -49,9 +53,9 @@ export default function RegistrationForm() {
 
       <label htmlFor="password">Password</label>
       <input
+        className={css['form__input']}
         type="text"
         name="password"
-        // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
         value={state.password}
