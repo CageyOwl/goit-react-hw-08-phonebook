@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgoit_react_hw_08_phonebook=self.webpackChunkgoit_react_hw_08_phonebook||[]).push([[43],{6043:function(t,e,n){n.r(e),n.d(e,{default:function(){return a}});var o=n(114),r=n(6393),u=n(3329);function a(){return(0,u.jsx)(o.Z,{text:r.y})}},6393:function(t,e,n){n.d(e,{_:function(){return o},y:function(){return r}});var o="This app was made by Fedorchuk Oleksandr P. as the GoIT homework project for the last React module. Thank you for visiting this page.",r="Bad URL, page not found."}}]);
+//# sourceMappingURL=43.a96add07.chunk.js.map
